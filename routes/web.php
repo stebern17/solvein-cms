@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\ContentController;
+use App\Http\Controllers\Admin\ServiceController;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -18,6 +20,13 @@ Route::middleware('admin.auth')->group(function () {
     
 });
 
-Route::get('/admin/dashboard', function () {
+Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::get('/content', [ContentController::class, 'edit'])->name('admin.content.edit');
+    Route::put('/content', [ContentController::class, 'update'])->name('admin.content.update');
+
+    Route::resource('/services', ServiceController::class)
+        ->except(['show'])
+        ->names('admin.services');
