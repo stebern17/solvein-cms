@@ -18,6 +18,6 @@ class Service extends Model
 
     public function points()
     {
-        return $this->hasMany(ServicePoint::class)->orderBy('order');
+        return $this->hasMany(ServicePoint::class);
     }
 }
