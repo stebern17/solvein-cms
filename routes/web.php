@@ -30,3 +30,5 @@ Route::get('/dashboard', function () {
     Route::resource('/services', ServiceController::class)
         ->except(['show'])
         ->names('admin.services');
+
+    Route::get('/posts', fn() => view('admin.post.index'))->name('post.index');

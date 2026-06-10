@@ -29,4 +29,18 @@ Alpine.data("serviceForm", (config = {}) => ({
     },
 }));
 
+Alpine.data("contentForm", (config = {}) => ({
+    imagePreviews: config.imagePreviews || {},
+
+    previewImage(field, event) {
+        const file = event.target.files?.[0];
+
+        if (!file) {
+            return;
+        }
+
+        this.imagePreviews[field] = URL.createObjectURL(file);
+    },
+}));
+
 Alpine.start();

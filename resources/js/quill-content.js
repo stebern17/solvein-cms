@@ -4,7 +4,7 @@ window.Quill = Quill;
 
 /**
  * Content Editor Module
- * Initializes Quill rich text editors for content management (Hero Section & About Solvein)
+ * Initializes Quill rich text editors for content management.
  */
 
 
@@ -29,7 +29,13 @@ function initializeContentEditors() {
         ["clean"],
     ];
 
-    const fields = ["hero_section", "about_solvein"];
+    const fields = [
+        "hero_section",
+        "about_solvein",
+        "description_1",
+        "description_2",
+        "description_3",
+    ];
     const editors = {};
 
     // Initialize Quill editors for each field
@@ -44,6 +50,13 @@ function initializeContentEditors() {
             theme: "snow",
             modules: { toolbar },
         });
+
+        editors[field]
+            .getModule("toolbar")
+            .container.querySelectorAll("button")
+            .forEach((button) => {
+                button.type = "button";
+            });
     });
 
     // Load existing data from data attribute on form
@@ -65,7 +78,9 @@ function initializeContentEditors() {
         const data = existingData[field];
         if (!data) return;
 
-        if (typeof data === "object" && data.html) {
+        if (typeof data === "object" && data.delta) {
+            editors[field].setContents(data.delta, "silent");
+        } else if (typeof data === "object" && data.html) {
             editors[field].root.innerHTML = data.html;
         } else if (typeof data === "object" && data.ops) {
             editors[field].setContents(data, "silent");
