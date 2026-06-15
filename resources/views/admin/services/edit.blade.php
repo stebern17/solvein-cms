@@ -4,8 +4,7 @@
 
 @section('content')
     <form method="POST" action="{{ route('admin.services.update', $service) }}" enctype="multipart/form-data"
-        class="space-y-6"
-        x-data="serviceForm({
+        class="space-y-6 " x-data="serviceForm({
             points: @js(old('points', $service->points->pluck('title')->values()->all() ?: [''])),
             imagePreview: @js($service->image ? asset('storage/' . $service->image) : null),
         })" id="serviceForm"

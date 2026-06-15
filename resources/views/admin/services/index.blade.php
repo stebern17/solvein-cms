@@ -3,7 +3,7 @@
 @section('title', 'Services')
 
 @section('content')
-    <div class="bg-white w-full rounded-lg px-8 py-4 shadow-lg shadow-slate-900/5">
+    <div class="bg-white w-full rounded-lg px-6 py-4 shadow-lg shadow-slate-900/5 ">
         <h2 class="text-2xl font-bold text-slate-800 mb-4">Manage Services</h2>
         <p class="text-sm text-slate-500 mb-6">Add, edit, or delete services offered by Solvein.</p>
 

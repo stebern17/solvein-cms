@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\FormController;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -31,4 +33,14 @@ Route::get('/dashboard', function () {
         ->except(['show'])
         ->names('admin.services');
 
+    Route::resource('/clients', ClientController::class)
+        ->except(['show'])
+        ->names('admin.clients');
+
     Route::get('/posts', fn() => view('admin.post.index'))->name('post.index');
+    
+    Route::get('/forms', [FormController::class, 'index'])->name('admin.form.index');
+    Route::get('/forms/{form}', [FormController::class, 'showForm'])->name('admin.form.show');
+    Route::get('/email-forms/{emailForm}', [FormController::class, 'showEmailForm'])->name('admin.form.show_email');
+    Route::delete('/forms/{form}', [FormController::class, 'destroyForm'])->name('admin.form.destroy');
+    Route::delete('/email-forms/{emailForm}', [FormController::class, 'destroyEmailForm'])->name('admin.form.destroy_email');

@@ -38,7 +38,7 @@
         @endif
 
         {{-- Hero Section --}}
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm px-6 py-4">
             <div class="border-b border-slate-200 px-6 py-4">
                 <h3 class="text-lg font-bold text-slate-900">Hero Section</h3>
                 <p class="mt-1 text-sm text-slate-500">Isi teks utama untuk bagian hero website.</p>
@@ -58,7 +58,7 @@
         </div>
 
         {{-- About Solvein --}}
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm px-6 py-4">
             <div class="border-b border-slate-200 px-6 py-4">
                 <h3 class="text-lg font-bold text-slate-900">About Solvein</h3>
                 <p class="mt-1 text-sm text-slate-500">Isi konten tentang Solvein.</p>
@@ -78,7 +78,7 @@
         </div>
 
         {{-- What We Do --}}
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm px-6 py-4">
             <div class="border-b border-slate-200 px-6 py-4">
                 <h3 class="text-lg font-bold text-slate-900">What We Do</h3>
                 <p class="mt-1 text-sm text-slate-500">Kelola tiga highlight layanan utama perusahaan.</p>

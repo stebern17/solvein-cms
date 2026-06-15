@@ -49,7 +49,7 @@
                         class="rounded-full px-5 py-2 text-sm font-medium text-slate-700 transition hover:bg-white/60 hover:text-orange-600">
                         Content
                     </a>
-                    <a href="/client"
+                    <a href="/clients"
                         class="rounded-full px-5 py-2 text-sm font-medium text-slate-700 transition hover:bg-white/60 hover:text-orange-600">
                         Client
                     </a>
