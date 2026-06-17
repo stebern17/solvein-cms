@@ -38,9 +38,14 @@ Route::get('/dashboard', function () {
         ->names('admin.clients');
 
     Route::get('/posts', fn() => view('admin.post.index'))->name('post.index');
+    Route::get('/users', fn() => view('admin.user.index'))->name('user.index');
     
-    Route::get('/forms', [FormController::class, 'index'])->name('admin.form.index');
-    Route::get('/forms/{form}', [FormController::class, 'showForm'])->name('admin.form.show');
-    Route::get('/email-forms/{emailForm}', [FormController::class, 'showEmailForm'])->name('admin.form.show_email');
-    Route::delete('/forms/{form}', [FormController::class, 'destroyForm'])->name('admin.form.destroy');
-    Route::delete('/email-forms/{emailForm}', [FormController::class, 'destroyEmailForm'])->name('admin.form.destroy_email');
+    Route::resource('/forms', FormController::class)
+        ->only(['index', 'show', 'destroy'])
+        ->names('admin.form');
+
+    Route::get('/email-forms/{emailForm}', [FormController::class, 'showEmailForm'])
+        ->name('admin.form.show_email');
+
+    Route::delete('/email-forms/{emailForm}', [FormController::class, 'destroyEmailForm'])
+        ->name('admin.form.destroy_email');

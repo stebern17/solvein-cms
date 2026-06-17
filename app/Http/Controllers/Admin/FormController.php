@@ -17,7 +17,7 @@ class FormController extends Controller
         return view('admin.form.index', compact('forms', 'emailForms'));
     }
 
-    public function showForm(Form $form)
+    public function show(Form $form)
     {
         return view('admin.form.show', compact('form'));
     }
@@ -27,7 +27,7 @@ class FormController extends Controller
         return view('admin.form.show_email', compact('emailForm'));
     }
 
-    public function destroyForm(Form $form)
+    public function destroy(Form $form)
     {
         $form->delete();
         return redirect()->route('admin.form.index')->with('success', 'Form entry deleted successfully.');
