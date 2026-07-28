@@ -13,10 +13,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post('/forms', [FormController::class, 'store']);
-Route::post('/email-forms', [EmailFormController::class, 'store']);
-Route::get('/services', [ServiceController::class, 'index']);
-Route::get('/clients', [ClientController::class, 'index']);
-Route::get('/contents', [ContentController::class, 'index']);
-Route::get('/what-we-do', [WhatWeDoController::class, 'index']);
-
+Route::middleware('api.key')->group(function () {
+    Route::post('/forms', [FormController::class, 'store']);
+    Route::post('/email-forms', [EmailFormController::class, 'store']);
+    Route::get('/services', [ServiceController::class, 'index']);
+    Route::get('/clients', [ClientController::class, 'index']);
+    Route::get('/contents', [ContentController::class, 'index']);
+    Route::get('/what-we-do', [WhatWeDoController::class, 'index']);
+});

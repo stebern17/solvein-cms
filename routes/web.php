@@ -19,10 +19,7 @@ Route::middleware('guest')->group(function () {
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('admin.auth')->group(function () {
-    
-});
-
-Route::get('/dashboard', function () {
+    Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
 
@@ -49,3 +46,6 @@ Route::get('/dashboard', function () {
 
     Route::delete('/email-forms/{emailForm}', [FormController::class, 'destroyEmailForm'])
         ->name('admin.form.destroy_email');
+});
+
+

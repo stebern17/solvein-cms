@@ -15,10 +15,11 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-            if (!auth()->check()) {
-                return redirect('/login');
-            }
-            
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+
         return $next($request);
+
     }
 }
