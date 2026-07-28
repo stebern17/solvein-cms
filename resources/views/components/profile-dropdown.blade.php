@@ -15,7 +15,7 @@
         <div>
             <p class=" block px-4 py-2 text-md text-gray-700 font-medium">Hello, {{ auth()->user()->name ?? 'Admin' }}
         </p>
-        <a href="/admin/profile"
+        <a href="/profile"
             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600 transition duration-300">Profile</a>
         <form method="POST" action="/logout">
             @csrf

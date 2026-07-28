@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 
-@section('title', 'Users')
+@section('title', 'Users Management')
 
 @section('content')
     <div class="min-h-[50vh] flex flex-col gap-8 items-center justify-center">
@@ -10,5 +10,4 @@
             Kembali ke dashboard
         </a>
     </div>
-
 @endsection
